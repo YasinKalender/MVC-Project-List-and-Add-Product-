@@ -1,0 +1,51 @@
+﻿@using WebApplication1.Models
+@model ModelUrun
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Ürünler</h2>
+
+
+
+        @foreach (var ürünler in Model.ürünler)
+        {
+
+            <div class="col-md-4">
+                <figure class="figure">
+                    <img src="~/img/@ürünler.resim" alt="A generic square placeholder image with rounded corners in a figure.">
+                    <figcaption class="figure-caption">@ürünler.ürünadi</figcaption>
+                    <figcaption class="figure-caption">
+
+                        @if (ürünler.aciklama.Length > 50)
+                        {
+
+                            @(ürünler.aciklama.Substring(0, 20) + "..")
+
+                        }
+
+                        else
+                        {
+                            @ürünler.aciklama
+                        }
+
+
+                    </figcaption>
+
+                    @*<a href="/Home/Details/@ürünler.ürünid" class="btn btn-primary">Ürün Detay</a>*@
+                    @*<a href="/Home/Details/?id=@ürünler.ürünid" class="btn btn-primary">Ürün Detay</a>*@
+                    @Html.ActionLink("Ürün detay", "Details", new { id = ürünler.ürünid }, new {@class="btn btn-primary" })
+
+                </figure>
+
+            </div>
+
+
+        }
+
+
+
+
+
+
+

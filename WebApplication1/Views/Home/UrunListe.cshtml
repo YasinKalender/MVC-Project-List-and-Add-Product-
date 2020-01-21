@@ -1,0 +1,40 @@
+﻿@using WebApplication1.Models
+@model List<Urun>
+@{
+    ViewBag.Title = "UrunListe";
+}
+
+<h2>Urun Listesi</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Resim</th>
+            <th>Ürün Adı</th>
+            <th>Açılalama</th>
+            <th>Fiyat</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+
+                <th><img src="~/img/@item.resim" /></th>
+                <td>@item.ürünadi</td>
+                <td>@item.aciklama</td>
+                <td>@item.fiyat</td>
+                <td><a href="/Home/Details/@item.ürünid" class="btn btn-primary">Detay</a></td>
+
+
+
+
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
